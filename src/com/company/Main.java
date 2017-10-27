@@ -21,7 +21,7 @@ public class Main {
     static Education education;
     static WorkExperience experience;
     static Skill skill;
-   // static Duty duty;
+    static Duty duty;
     public static void main(String[] args) {
 	// write your code here
 
@@ -132,11 +132,18 @@ public class Main {
 
                       //do while loop to enter the duties of the person
                       do{
+                                 duty= new Duty();
+
+
+                               System.out.print ("Enter the Duty ID : " );
+                               duty.setDutyID ( keyboard.nextLine () );
 //
                               System.out.print ("Enter Duties of the person:  " );
-                            //  duty.setDutyName (   keyboard.nextLine ());
+                              duty.setDutyName (   keyboard.nextLine ());
 
-                               experience.setDuty ( keyboard.nextLine () );
+
+
+                               experience.setDuty ( duty );
 
 
                          experience.addDuty ( experience.getDuty () );
@@ -239,9 +246,9 @@ public class Main {
             System.out.println (workExp.getJobTitle () );
             System.out.println (workExp.getCompanyName () + "   " +workExp.getYearFrom () +"-" + workExp.getYearTo ());
 
-             for(String due: workExp.getArrayListDuty ())
+             for(Duty due: workExp.getArrayListDuty ())
              {
-                 System.out.println ("   -"+due);
+                 System.out.println ("   -"+ due.getDutyID ()+"," +due.getDutyName ());
 
              }
 
