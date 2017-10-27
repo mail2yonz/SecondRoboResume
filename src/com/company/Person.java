@@ -1,13 +1,45 @@
+/*
+Yonatan Mengesha
+Java Boot Camp
+
+java challenge 3
+ */
+
+
 package com.company;
 
 import java.util.ArrayList;
 
 public class Person {
+
     private String FullName;
     private String EmailAddress;
 
     private Education education;
     private Skill skill;
+    private WorkExperience workExperience;
+    private ArrayList<Education> educationArrayList;
+    private ArrayList<Skill> skillArrayList;
+    private ArrayList<WorkExperience> experienceArrayList;
+
+
+    public Person()
+    {
+        education= new Education();
+        workExperience = new WorkExperience ();
+        skill= new Skill ();
+        educationArrayList= new ArrayList<> ( );
+        experienceArrayList= new ArrayList<>( );
+        skillArrayList= new ArrayList<> (  );
+    }
+
+    public Person(Education education,WorkExperience workExperience, Skill skill)
+    {
+        this.education=education;
+        this.workExperience=workExperience;
+        this.skill= skill;
+    }
+
 
     public WorkExperience getWorkExperience() {
         return workExperience;
@@ -17,10 +49,6 @@ public class Person {
         this.workExperience = workExperience;
     }
 
-    private WorkExperience workExperience;
-    private ArrayList<Education> educationArrayList;
-
-    private ArrayList<WorkExperience> experienceArrayList;
 
     public ArrayList<Skill> getSkillArrayList() {
         return skillArrayList;
@@ -30,7 +58,7 @@ public class Person {
         this.skillArrayList = skillArrayList;
     }
 
-    private ArrayList<Skill> skillArrayList;
+
 
 
     public ArrayList<Education> getEducationArrayList() {
@@ -49,22 +77,8 @@ public class Person {
         this.experienceArrayList = experienceArrayList;
     }
 
-    public Person()
-    {
-        education= new Education();
-        workExperience = new WorkExperience ();
-        skill= new Skill ();
-        educationArrayList= new ArrayList<> ( );
-        experienceArrayList= new ArrayList<>( );
-        skillArrayList= new ArrayList<> (  );
-    }
 
-    public Person(Education education,WorkExperience workExperience, Skill skill)
-    {
-        this.education=education;
-        this.workExperience=workExperience;
-        this.skill= skill;
-    }
+
 
     public String getName() {
         return FullName;

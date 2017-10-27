@@ -1,3 +1,12 @@
+
+/*
+Yonatan Mengesha
+Java Boot Camp
+
+java challenge 3
+ */
+
+
 package com.company;
 
 import java.util.ArrayList;
@@ -10,6 +19,14 @@ public class WorkExperience {
     private String YearTo;
     private String duty;
     ArrayList<String> arrayListDuty;
+
+    public WorkExperience()
+    {
+        arrayListDuty= new ArrayList<> (  );
+    }
+
+
+
     public ArrayList<String> getArrayListDuty() {
         return arrayListDuty ;
     }
@@ -40,10 +57,7 @@ public class WorkExperience {
 
 
 
-    public WorkExperience()
-    {
-        arrayListDuty= new ArrayList<> (  );
-    }
+
 
     public String getJobTitle() {
         return JobTitle;

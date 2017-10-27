@@ -1,10 +1,21 @@
+
+/*
+Yonatan Mengesha
+Java Boot Camp
+
+java challenge 3
+ */
+
 package com.company;
 
 public class Education {
+
+
     private String EducationalLevel;
 
     private String School;
     private String GraduationYear;
+
     public Education() {
     }
 

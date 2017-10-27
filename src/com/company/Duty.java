@@ -1,3 +1,11 @@
+
+/*
+Yonatan Mengesha
+Java Boot Camp
+
+java challenge 3
+ */
+
 package com.company;
 
 public class Duty {

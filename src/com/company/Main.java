@@ -9,7 +9,7 @@ java challenge 3
 
 package com.company;
 
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Main {
@@ -17,17 +17,18 @@ public class Main {
     //creating a static variable of  Person object
     static Person person;
 
-    //creating a static variable of the Education object
+    //creating a static variable of the Education object,experience  object,skill object ,
     static Education education;
     static WorkExperience experience;
     static Skill skill;
-    static Duty duty;
+   // static Duty duty;
     public static void main(String[] args) {
 	// write your code here
 
 
         String answer="Yes";
 
+        //assigning Stop variable to Stop
         String Stop="Stop";
 
         int educationalCount=1;
@@ -50,21 +51,20 @@ public class Main {
 
              do{
 
-
+                 // add one to the count because the do will execute once at the start
                  educationalCount++;
 
 
 
-
+                 // if the count is not equal to 10 then continue
 
                  if( educationalCount!=10)
                  {
-
-
+                     //if it is you didn't enter stop from the keyboard continue
                      if(!Stop.equalsIgnoreCase(answer))
                      {
                          education= new Education();
-                         System.out.println ("Enter the Persons Educational Achievement(Diploma/Degree/Masters...: ");
+                         System.out.print ("Enter the Persons Educational Achievement(Diploma/Degree/Masters/Phd): ");
 
                          education.setEducationalLevel (keyboard.nextLine ());
 
@@ -86,8 +86,8 @@ public class Main {
 //                     }
                     }
 
-
-                     System.out.println ("Do you want to Enter another Educational Achievement?(Yes/Stop)" );
+                     //Type yes to continue and Stop to stop
+                     System.out.println ("Do you want to Enter another Educational Achievement?(Yes/Stop)type Stop to stop" );
                      answer= keyboard.nextLine ();
 
 
@@ -95,23 +95,20 @@ public class Main {
 
 
 
-             }while( educationalCount< 11 && !Stop.equalsIgnoreCase (answer) );//
+             }while( educationalCount< 11 && !Stop.equalsIgnoreCase (answer) );//if count is less than 11 and is not stop
 
 
-
-
-
-
-
+        System.out.println ( );
 
          do{
+             // add one to the count
 
              experienceCount++;
 
-
+               //if the  count is not equal to 10 where in the while it is <11
              if(experienceCount!=10)
              {
-
+                   //if it is not stop continue
                   if(!Stop.equalsIgnoreCase(answer))
                   {
 
@@ -125,11 +122,11 @@ public class Main {
                       System.out.print ("Enter the  Company the person worked for: " );
                       experience.setCompanyName (  keyboard.nextLine ());
 
-                      System.out.println ("Enter the Starting date of your experience: " );
+                      System.out.print ("Enter the Start date of your experience: " );
 
                       experience.setYearFrom ( keyboard.nextLine () );
 
-                      System.out.println ("Enter the Day you left the Job: "  );
+                      System.out.print ("Enter the End Day of your work experience (present/specific day) : "  );
                       experience.setYearTo ( keyboard.nextLine () );
 
 
@@ -167,14 +164,16 @@ public class Main {
 
 
                   }
+                 //Type yes to continue and Stop to stop
                  System.out.println ("Do you want to Enter  Experience?(Yes/Stop)" );
                  answer= keyboard.nextLine ();
 
              }
-         }while(!Stop.equalsIgnoreCase(answer) && experienceCount< 11);
+
+         }while(experienceCount< 11 &&!Stop.equalsIgnoreCase(answer)  );
 
 
-
+        System.out.println ( );
 
 
         do{
@@ -187,7 +186,7 @@ public class Main {
                 {
                     skill= new Skill ();
 
-                    System.out.println ("Enter the persons Skill type: " );
+                    System.out.print ("Enter the persons Skill type: " );
                     skill.setSkillType ( keyboard.nextLine () );
 
                     System.out.print ("Enter the Persons Skill with rating:(Advanced/Intermediate/Fundamental): " );
@@ -197,7 +196,7 @@ public class Main {
 
 
                 }
-
+                      //Type yes to continue and Stop to stop
                 System.out.println ("Do you want to Enter  Skill?(yes/Stop)" );
                 answer=keyboard.nextLine ();
 
@@ -228,11 +227,12 @@ public class Main {
         {
             System.out.println (edu.getEducationalLevel () );
             System.out.println (edu.getSchool () +"," +edu.getGraduationYear () );
+            System.out.println ( );
         }
 
         System.out.println ( );
 
-        System.out.println ("Experiance " );
+        System.out.println ("Experience " );
 
         for(WorkExperience workExp: person.getExperienceArrayList ())
         {
@@ -244,6 +244,8 @@ public class Main {
                  System.out.println ("   -"+due);
 
              }
+
+            System.out.println ( );
 
         }
         System.out.println ( );
