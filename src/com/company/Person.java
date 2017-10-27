@@ -9,6 +9,14 @@ public class Person {
     private Education education;
     private Skill skill;
 
+    public WorkExperience getWorkExperience() {
+        return workExperience;
+    }
+
+    public void setWorkExperience(WorkExperience workExperience) {
+        this.workExperience = workExperience;
+    }
+
     private WorkExperience workExperience;
     private ArrayList<Education> educationArrayList;
 

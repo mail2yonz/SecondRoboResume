@@ -8,21 +8,41 @@ public class WorkExperience {
     private String CompanyName;
     private String YearFrom;
     private String YearTo;
-    private ArrayList<Duty> dutyArrayList;
+    private String duty;
+    ArrayList<String> arrayListDuty;
+    public ArrayList<String> getArrayListDuty() {
+        return arrayListDuty ;
+    }
 
-    public Duty getDuty() {
+    public void setArrayListDuty(ArrayList<String> arrayDuty) {
+        this.arrayListDuty = arrayDuty;
+    }
+
+
+    public void setDuty(String duty) {
+        this.duty = duty;
+    }
+    public String getDuty()
+    {
         return duty;
     }
 
-    public void setDuty(Duty duty) {
-        this.duty = duty;
-    }
 
-    private Duty duty;
+   // private ArrayList<Duty> dutyArrayList;
+
+//    public Duty getDuty() {
+//        return duty;
+//    }
+//
+//    public void setDuty(Duty duty) {
+//        this.duty = duty;
+//    }
+
+
 
     public WorkExperience()
     {
-        duty= new Duty();
+        arrayListDuty= new ArrayList<> (  );
     }
 
     public String getJobTitle() {
@@ -57,16 +77,19 @@ public class WorkExperience {
         YearTo = yearTo;
     }
 
-    public ArrayList<Duty> getDutyArrayList() {
-        return dutyArrayList;
-    }
+//    public ArrayList<Duty> getDutyArrayList() {
+//        return dutyArrayList;
+//    }
+//
+//    public void setDutyArrayList(ArrayList<Duty> dutyArrayList) {
+//        this.dutyArrayList = dutyArrayList;
+//    }
 
-    public void setDutyArrayList(ArrayList<Duty> dutyArrayList) {
-        this.dutyArrayList = dutyArrayList;
-    }
-
-    public void addDuty(Duty duty)
+    public void addDuty(String  duty)
     {
-        dutyArrayList.add (  duty);
+        //dutyArrayList.add (  duty);
+
+        arrayListDuty.add ( duty );
+
     }
 }

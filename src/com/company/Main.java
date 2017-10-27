@@ -14,13 +14,17 @@ import java.util.Scanner;
 
 public class Main {
 
+    //creating a static variable of  Person object
     static Person person;
+
+    //creating a static variable of the Education object
     static Education education;
     static WorkExperience experience;
     static Skill skill;
     static Duty duty;
     public static void main(String[] args) {
 	// write your code here
+
 
         String answer="Yes";
 
@@ -103,16 +107,16 @@ public class Main {
          do{
 
              experienceCount++;
-             experience= new WorkExperience ();
 
-             if(experienceCount<=10)
+
+             if(experienceCount!=10)
              {
 
                   if(!Stop.equalsIgnoreCase(answer))
                   {
 
 
-
+                      experience= new WorkExperience ();
 
 
                       System.out.print ("Enter the Persons Job Title: " );
@@ -121,38 +125,53 @@ public class Main {
                       System.out.print ("Enter the  Company the person worked for: " );
                       experience.setCompanyName (  keyboard.nextLine ());
 
+                      System.out.println ("Enter the Starting date of your experience: " );
+
+                      experience.setYearFrom ( keyboard.nextLine () );
+
+                      System.out.println ("Enter the Day you left the Job: "  );
+                      experience.setYearTo ( keyboard.nextLine () );
+
 
                       //do while loop to enter the duties of the person
                       do{
-                          duty= new Duty();
-                          System.out.print ("Enter Duties Name the Person At that company " );
-                          duty.setDutyName (   keyboard.nextLine ());
+//
+                              System.out.print ("Enter Duties of the person:  " );
+                            //  duty.setDutyName (   keyboard.nextLine ());
 
-                          System.out.println ("Enter the Duties ID: " );
-                          duty.setDutyID ( keyboard.nextLine () );
+                               experience.setDuty ( keyboard.nextLine () );
 
 
-                          experience.addDuty ( duty );
+                         experience.addDuty ( experience.getDuty () );
 
-                          System.out.println ("Do you want to Add more Duties?(yes/No)" );
+
+
+
+
+                          System.out.println ("Do you want add Duties?(yes/No)" );
                           //Add an if statement for no
+                          answer = keyboard.nextLine () ;
+
+
 
                       }while(answer.equalsIgnoreCase ( "yes" ));
 
 
+
+
                       person.addExperiance ( experience );
 
-                      System.out.println ("Do you want to Enter another Experience?(Yes/No)" );
-                      answer= keyboard.nextLine ();
+
+
+
 
 
                   }
-
-
-
+                 System.out.println ("Do you want to Enter  Experience?(Yes/Stop)" );
+                 answer= keyboard.nextLine ();
 
              }
-         }while(!Stop.equalsIgnoreCase(answer) && experienceCount<=10);
+         }while(!Stop.equalsIgnoreCase(answer) && experienceCount< 11);
 
 
 
@@ -162,9 +181,9 @@ public class Main {
 
              skillCount++;
 
-            if(skillCount<=10)
+            if(skillCount!=20)
             {
-                if(!answer.equalsIgnoreCase ( "No" ))
+                if(!Stop.equalsIgnoreCase (answer ))
                 {
                     skill= new Skill ();
 
@@ -176,21 +195,21 @@ public class Main {
 
                     person.addSkills ( skill );
 
-                    System.out.println ("Do you want to Enter another Skill?(yes/no)" );
-                    answer=keyboard.nextLine ();
+
                 }
 
-
+                System.out.println ("Do you want to Enter  Skill?(yes/Stop)" );
+                answer=keyboard.nextLine ();
 
             }
 
 
 
 
-        }while(answer.equalsIgnoreCase ( "yes" ) && skillCount<21);
+        }while(!Stop.equalsIgnoreCase (answer ) && skillCount<21);
 
         //calling the printing method
-       //  printing();
+         printing();
 
 
 
@@ -199,13 +218,42 @@ public class Main {
     //This lets us see the output
     public static void printing()
     {
-        //Person person = new Person();
-        System.out.println ("=================================================" );
+
         System.out.println ( person.getName ());
         System.out.println (person.getEmailAddress () );
         System.out.println ( );
         System.out.println ("Education" );
 
+        for(Education edu:person.getEducationArrayList ())
+        {
+            System.out.println (edu.getEducationalLevel () );
+            System.out.println (edu.getSchool () +"," +edu.getGraduationYear () );
+        }
+
+        System.out.println ( );
+
+        System.out.println ("Experiance " );
+
+        for(WorkExperience workExp: person.getExperienceArrayList ())
+        {
+            System.out.println (workExp.getJobTitle () );
+            System.out.println (workExp.getCompanyName () + "   " +workExp.getYearFrom () +"-" + workExp.getYearTo ());
+
+             for(String due: workExp.getArrayListDuty ())
+             {
+                 System.out.println ("   -"+due);
+
+             }
+
+        }
+        System.out.println ( );
+
+        System.out.println ("Skills" );
+
+        for(Skill skill: person.getSkillArrayList ())
+        {
+            System.out.println (skill.getSkillType () +" ," +skill.getLevelOfSkill () );
+        }
 
     }
 }
