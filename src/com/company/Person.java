@@ -1,22 +1,54 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Person {
     private String FullName;
     private String EmailAddress;
-   // private String educationalAchivement;
+
     private Education education;
-   // private String experiance;
-    private WorkExperience workExperience;
-   // private String skillRating;
-
-
     private Skill skill;
+
+    private WorkExperience workExperience;
+    private ArrayList<Education> educationArrayList;
+
+    private ArrayList<WorkExperience> experienceArrayList;
+
+    public ArrayList<Skill> getSkillArrayList() {
+        return skillArrayList;
+    }
+
+    public void setSkillArrayList(ArrayList<Skill> skillArrayList) {
+        this.skillArrayList = skillArrayList;
+    }
+
+    private ArrayList<Skill> skillArrayList;
+
+
+    public ArrayList<Education> getEducationArrayList() {
+        return educationArrayList;
+    }
+
+    public void setEducationArrayList(ArrayList<Education> educationArrayList) {
+        this.educationArrayList = educationArrayList;
+    }
+
+    public ArrayList<WorkExperience> getExperienceArrayList() {
+        return experienceArrayList;
+    }
+
+    public void setExperienceArrayList(ArrayList<WorkExperience> experienceArrayList) {
+        this.experienceArrayList = experienceArrayList;
+    }
 
     public Person()
     {
         education= new Education();
         workExperience = new WorkExperience ();
         skill= new Skill ();
+        educationArrayList= new ArrayList<> ( );
+        experienceArrayList= new ArrayList<>( );
+        skillArrayList= new ArrayList<> (  );
     }
 
     public Person(Education education,WorkExperience workExperience, Skill skill)
@@ -42,27 +74,19 @@ public class Person {
         this.EmailAddress = emailAddress;
     }
 
-//   public String getEducationalAchivement() {
-//        return educationalAchivement;
-//    }
+     public void addExperiance(WorkExperience workExperience)
+     {
+         experienceArrayList.add ( workExperience );
+     }
 
-//    public void setEducationalAchivement(String educationalAchivement) {
-//        this.educationalAchivement = educationalAchivement;
-//    }
+     public void addEducation(Education education)
+     {
+         educationArrayList.add ( education );
+     }
 
-//    public String getExperiance() {
-//        return experiance;
-//    }
-//
-//    public void setExperiance(String experiance) {
-//        this.experiance = experiance;
-//    }
+     public void addSkills(Skill skill)
+     {
+         skillArrayList.add ( skill );
+     }
 
-//    public String getSkillRating() {
-//        return skillRating;
-//    }
-//
-//    public void setSkillRating(String skillRating) {
-//        this.skillRating = skillRating;
-//    }
 }

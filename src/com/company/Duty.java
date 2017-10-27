@@ -2,15 +2,15 @@ package com.company;
 
 public class Duty {
 
-    private String DutyNumber;
+    private String DutyID;
     private String DutyName;
 
-    public String getDutyNumber() {
-        return DutyNumber;
+    public String getDutyID() {
+        return DutyID;
     }
 
-    public void setDutyNumber(String dutyNumber) {
-        DutyNumber = dutyNumber;
+    public void setDutyID(String dutyNumber) {
+        DutyID = dutyNumber;
     }
 
     public String getDutyName() {

@@ -16,18 +16,19 @@ public class Main {
 
     static Person person;
     static Education education;
-//    static ArrayList<String> educationalList;
-//    static ArrayList<String> experianceList;
-//    static ArrayList<String> skillList;
-//    static ArrayList<String> dutyList;
+    static WorkExperience experience;
+    static Skill skill;
+    static Duty duty;
     public static void main(String[] args) {
 	// write your code here
 
-        String answer;
-//        educationalList=new ArrayList<> ();
-//        experianceList= new ArrayList<>();
-//        skillList=new ArrayList<> ();
-//        dutyList=new ArrayList<>();
+        String answer="Yes";
+
+        String Stop="Stop";
+
+        int educationalCount=1;
+        int experienceCount=0;
+        int skillCount=1;
 
         person= new Person();
         Scanner keyboard= new Scanner (System.in);
@@ -39,100 +40,157 @@ public class Main {
         System.out.print ("Enter the Persons Email: " );
         person.setEmailAddress ( keyboard.nextLine () );
 
-      //Do while loop To enter about the person
-         do{
-                   int educationalCount=1;
+
+
+
 
              do{
-                 education= new Education();
-                 System.out.print ("Enter the Persons Educational Achievement(Diploma/Degree/Masters...: " );
 
-                 String title=keyboard.nextLine ();
 
-                 education.setEducationalLevel (title);
                  educationalCount++;
 
-                 System.out.println ("Do you want to Enter another Educational Achievement?(Yes/No)" );
-                 answer= keyboard.nextLine ();
-
-
-             }while(educationalCount<=10 && answer.equalsIgnoreCase ( "Yes" ) && !answer.equalsIgnoreCase ( "No" ));
 
 
 
 
-             System.out.print("Enter the university you graduated from: " );
-              String university=keyboard.nextLine ();
+                 if( educationalCount!=10)
+                 {
 
-             System.out.print ("Enter the year of graduation: " );
-             String year=keyboard.nextLine ();
 
-            // String ansKeyboard= title +"\n" +university+", " +year;
+                     if(!Stop.equalsIgnoreCase(answer))
+                     {
+                         education= new Education();
+                         System.out.println ("Enter the Persons Educational Achievement(Diploma/Degree/Masters...: ");
 
-            // person.setEducationalAchivement ( ansKeyboard );
+                         education.setEducationalLevel (keyboard.nextLine ());
 
-             System.out.println ("Do you want to Enter Another Educational Achievement?(yes/no)" );
-             answer=keyboard.nextLine ();
 
-             if(!answer.equalsIgnoreCase ( "yes" )&&!answer.equalsIgnoreCase ( "No" ))
-             {
-                 System.out.println ("Invalid Entry Please Enter yes/No" );
-             }
+                         System.out.print("Enter the university you graduated from: " );
+                         education.setSchool ( keyboard.nextLine () );
 
-            // educationalList.add ( person.getEducationalAchivement () );
 
-         }while(answer.equalsIgnoreCase ( "yes" )&& !answer.equalsIgnoreCase ( "No" ));
+                         System.out.print ("Enter the year of graduation: " );
+                         education.setGraduationYear (  keyboard.nextLine ());
+
+                         person.addEducation ( education );
+
+
+
+//                     if(!answer.equalsIgnoreCase ( "yes" )&&!answer.equalsIgnoreCase ( "No" ))
+//                     {
+//                         System.out.println ("Invalid Entry Please Enter yes/No" );
+//                     }
+                    }
+
+
+                     System.out.println ("Do you want to Enter another Educational Achievement?(Yes/Stop)" );
+                     answer= keyboard.nextLine ();
+
+
+                }
+
+
+
+             }while( educationalCount< 11 && !Stop.equalsIgnoreCase (answer) );//
+
+
+
+
+
+
 
 
          do{
-             System.out.print ("Enter the Persons Experience Title: " );
-             String title=keyboard.nextLine ();
 
-             System.out.print ("Enter the  Company the person worked for: " );
-             String company=keyboard.nextLine ();
+             experienceCount++;
+             experience= new WorkExperience ();
 
-             String duty;
-             //do while loop to enter the duties of the person
-             do{
-                 System.out.print ("Enter Duties of the Person At that company " );
-                 duty= keyboard.nextLine ();
+             if(experienceCount<=10)
+             {
 
-//                 for(int count=0;count<dutyList.size ();count++)
-//                 {
-//                   duty=  duty +"\n" +"* " + dutyList.get ( count )+"\n ";
-//                 }
-
-                 System.out.println ("Do you want to Add more Duties?(yes/No)" );
-                 answer =keyboard.nextLine ();
-                 //dutyList.add ( duty );
-
-             }while(answer.equalsIgnoreCase ( "yes" ));
-
-             String ansKeyboard="\n"+ title +"\n" +company +"\n" + duty;
+                  if(!Stop.equalsIgnoreCase(answer))
+                  {
 
 
-           //  person.setExperiance ( ansKeyboard );
-
-             System.out.println ("Do you want to Enter another Experience?(Yes/No)" );
-             answer= keyboard.nextLine ();
-            // experianceList.add ( person.getExperiance () );
-
-         }while(answer.equalsIgnoreCase ( "yes" ));
 
 
-         //a do while loop for the skill to let us enter more skills
+
+                      System.out.print ("Enter the Persons Job Title: " );
+                      experience.setJobTitle (  keyboard.nextLine ());
+
+                      System.out.print ("Enter the  Company the person worked for: " );
+                      experience.setCompanyName (  keyboard.nextLine ());
+
+
+                      //do while loop to enter the duties of the person
+                      do{
+                          duty= new Duty();
+                          System.out.print ("Enter Duties Name the Person At that company " );
+                          duty.setDutyName (   keyboard.nextLine ());
+
+                          System.out.println ("Enter the Duties ID: " );
+                          duty.setDutyID ( keyboard.nextLine () );
+
+
+                          experience.addDuty ( duty );
+
+                          System.out.println ("Do you want to Add more Duties?(yes/No)" );
+                          //Add an if statement for no
+
+                      }while(answer.equalsIgnoreCase ( "yes" ));
+
+
+                      person.addExperiance ( experience );
+
+                      System.out.println ("Do you want to Enter another Experience?(Yes/No)" );
+                      answer= keyboard.nextLine ();
+
+
+                  }
+
+
+
+
+             }
+         }while(!Stop.equalsIgnoreCase(answer) && experienceCount<=10);
+
+
+
+
+
         do{
-            System.out.print ("Enter the Persons Skill with rating: " );
-           // person.setSkillRating ( keyboard.nextLine () );
 
-            System.out.println ("Do you want to Enter another Skill?(yes/no)" );
-            answer=keyboard.nextLine ();
-          //  skillList.add(person.getSkillRating ());
+             skillCount++;
 
-        }while(answer.equalsIgnoreCase ( "yes" ));
+            if(skillCount<=10)
+            {
+                if(!answer.equalsIgnoreCase ( "No" ))
+                {
+                    skill= new Skill ();
+
+                    System.out.println ("Enter the persons Skill type: " );
+                    skill.setSkillType ( keyboard.nextLine () );
+
+                    System.out.print ("Enter the Persons Skill with rating:(Advanced/Intermediate/Fundamental): " );
+                    skill.setLevelOfSkill ( keyboard.nextLine () );
+
+                    person.addSkills ( skill );
+
+                    System.out.println ("Do you want to Enter another Skill?(yes/no)" );
+                    answer=keyboard.nextLine ();
+                }
+
+
+
+            }
+
+
+
+
+        }while(answer.equalsIgnoreCase ( "yes" ) && skillCount<21);
 
         //calling the printing method
-         printing();
+       //  printing();
 
 
 
@@ -147,31 +205,7 @@ public class Main {
         System.out.println (person.getEmailAddress () );
         System.out.println ( );
         System.out.println ("Education" );
-        //for each loop for education list
-//        for(String edu:educationalList)
-//        {
-//
-//        System.out.println (edu );
-//        System.out.println ( );
-//        }
 
-        System.out.println ( );
-
-//        System.out.println ("Experience" );
-//        for(String exp:experianceList)
-//        {
-//            System.out.println (exp );
-//            System.out.println ( );
-//        }
-//
-
-
-//        System.out.println ( );
-//        System.out.println ("Skill" );
-//        for(String skills:skillList)
-//        {
-//            System.out.println (skills);
-//        }
 
     }
 }
